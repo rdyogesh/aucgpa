@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+{% load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CGPA Calculator</title>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <!-- <link rel="stylesheet" href="index.css"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <ul class="nlinks">
+            <a class="nlink flink" href="#">AUCGPA</a>
+            <a class="nlink hred" href="#projects">GPA Calculator</a>
+            <a class="nlink hred" href="#service">News</a>
+            <a class="nlink hred" id="contact" href="#knowme">Contact US</a>
+        </ul>
+    </header>
+    <section class="form-cont">
+        <div class="form-wrap">
+            <h2 class="calc-gpa">Calculate GPA</h2>
+        <form method="post" action="/getgpa/">
+            {% csrf_token %}
+            {% for k,v in resp.items %}
+            <div class="input-cont">
+                <div class="sub-header">
+                    <h4 class="sub-title">{{ k }}.{{v.subcode}} - {{v.subject_name}}</h4>
+                </div>
+                <div class="sub-scoring">
+                <label for="credits">Credits</label>
+                <input type="Credits" class="credit" name="credit{{k}}" value="{{v.credit}}">
+                <label for="grade">Grade</label>
+                <select name="grade{{k}}" id="credit">
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="0">U</option>
+                </select>
+             </div>       
+             </div> 
+    {% endfor %}
+                <input type="hidden" name="cnt" value="{{cnt}}">
+                 <input type="submit" class="sub-btn" value="calculate">
+        </form>
+    </div>
+    </section>
+    <section class="au-msg-cont">
+        <ul>
+            <li>        <p class="au-msg">to calculate cgpa <a href="#">click this</a>.</p>
+            </li>
+            <li>    <p class="au-msg">this tool is used to calculate cummulative grade point average(CGPA) and 
+                grade point average(GPA) for engineering students especially for anna university
+                 students located in chennai also shortly called as AU students.CGPA and GPA for
+                  various department like information technology,bio technology,aeronaeutical engineering,
+                  mechanical engineering,computer science and engineering,Electronics and Communications Engineering,
+                  Electrical and Electronics Engineering,chemical engineering.</p>
+            </li>
+            <li><p class="au-msg">students can calculate their cgpa and gpa in this online gpa Calculator saving time for engineering 
+                students especially of anna university.</p>
+                </li>
+                <li>   <p class="au-msg">Thanks for using our online gpa calculator. Subject code, credit point of the subjects are valid for colleges under Anna university Tamilnadu. Go back to calculate gpa.
+                    Search Terms:
+                    Anna university CGPA calculator Android app, Mobile application for Engineering students,
+                    best android app for gpa calculator, useful android app for engineering students Tamilnadu.</p>
+        </li>
+        </ul>
+     </section>
+</body>
+</html>

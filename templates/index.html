@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+{% load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CGPA Calculator</title>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <ul class="nlinks">
+            <a class="nlink flink" href="#">AUCGPA</a>
+            <a class="nlink hred" href="#projects">GPA Calculator</a>
+            <a class="nlink hred" href="#service">CGPA Calculator</a>
+            <a class="nlink hred" id="contact" href="#knowme">Contact US</a>
+        </ul>
+    </header>
+    <section class="body-wrap">
+        <div class="gpa-form">
+            <h1 class="title">gpa calculator</h1>
+            <span class="title-desc">(Anna University)</span>
+        <div class="form-con">
+            <form class="form-allign" action="/get-gpa-calc/" method="post">
+                {% csrf_token %}
+                <div>
+                    <label for="dept">Dept:</label>
+                    <select name="dept" id="dept">
+                        <option value="Civil">Civil</option>
+                        <option value="IT">IT</option>
+                        <option value="AERO">AERO</option>
+                        <option value="ECE">ECE</option>
+                        <option value="EEE">EEE</option>
+                        <option value="MECH">MECH</option>
+                        <option value="CSE">CSE</option>
+                        <option value="CHEM">CHEM</option>
+                        <option value="BT">BT</option>
+                    </select>
+                    <label for="sem">Sem:</label>
+                    <select name="sem" id="sem">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+                </div>
+                <input type="submit" value="calculate" class="sub-btn increase-width">
+            </form>
+        </div>
+    </section>
+    <section class="au-msg-cont">
+        <ul>
+            <li>        <p class="au-msg">to calculate cgpa <a href="#">click this</a>.</p>
+            </li>
+            <li>    <p class="au-msg">this tool is used to calculate cummulative grade point average(CGPA) and 
+                grade point average(GPA) for engineering students especially for anna university
+                 students located in chennai also shortly called as AU students.CGPA and GPA for
+                  various department like information technology,bio technology,aeronaeutical engineering,
+                  mechanical engineering,computer science and engineering,Electronics and Communications Engineering,
+                  Electrical and Electronics Engineering,chemical engineering.</p>
+            </li>
+            <li><p class="au-msg">students can calculate their cgpa and gpa in this online gpa Calculator saving time for engineering 
+                students especially of anna university.</p>
+                </li>
+                <li>   <p class="au-msg">Thanks for using our online gpa calculator. Subject code, credit point of the subjects are valid for colleges under Anna university Tamilnadu. Go back to calculate gpa.
+                    Search Terms:
+                    Anna university CGPA calculator Android app, Mobile application for Engineering students,
+                    best android app for gpa calculator, useful android app for engineering students Tamilnadu.</p>
+        </li>
+        </ul>
+     </section>
+</body>
+</html>
